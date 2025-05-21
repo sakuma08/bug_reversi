@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require_relative './lib/reversi_methods'
-require 'debug'
-
 
 class Reversi
   include ReversiMethods
@@ -10,7 +8,6 @@ class Reversi
   QUIT_COMMANDS = %w[quit exit q].freeze
 
   def initialize
-    #binding.break
     @board = build_initial_board
     @current_stone = BLACK_STONE
   end
@@ -37,7 +34,6 @@ class Reversi
       break if QUIT_COMMANDS.include?(command)
 
       begin
-        #binding.break
         if put_stone(@board, command, @current_stone)
           puts '配置成功、次のターン'
           toggle_stone
